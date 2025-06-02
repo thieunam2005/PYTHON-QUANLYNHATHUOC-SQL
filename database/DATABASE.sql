@@ -166,3 +166,7 @@ INSERT INTO LICHSU_DANGNHAP (taiKhoan, thoiGian) VALUES
 ('admin1', '2025-05-25 09:00:00'),
 ('employee1', '2025-05-25 10:00:00');
 
+
+ALTER TABLE SANPHAM ADD trangThai NVARCHAR(20) DEFAULT N'Hoạt động';
+
+--drop database DATABASE_QLTHUOC
