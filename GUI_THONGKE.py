@@ -89,6 +89,20 @@ def show_statistics_tab(parent):
         else:
             add_block("Sản phẩm sắp hết hạn (trong 3 tháng):", "Không có sản phẩm nào sắp hết hạn")
 
+                # Tổng số hóa đơn
+        cursor.execute("SELECT COUNT(*) FROM HOADON")
+        tong_hoa_don = cursor.fetchone()[0]
+        add_block("Tổng số hóa đơn:", f"{tong_hoa_don} hóa đơn")
+
+        # Tổng số phiếu nhập
+        cursor.execute("SELECT COUNT(*) FROM PHIEUNHAP")
+        tong_phieu_nhap = cursor.fetchone()[0]
+        add_block("Tổng số phiếu nhập:", f"{tong_phieu_nhap} phiếu nhập")
+
+        # Tổng doanh thu từ hóa đơn
+        cursor.execute("SELECT SUM(tongTien) FROM HOADON")
+        tong_doanh_thu = cursor.fetchone()[0] or 0
+        add_block("Tổng doanh thu:", f"{tong_doanh_thu:,} đ")
 
         conn.close()
 
